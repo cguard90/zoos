@@ -13,7 +13,7 @@
     end
     response = Response.create(survey: survey,
                                question: question,
-                               user: user,
+                               user: User.all.sample,
                                potential_reply: potential_reply)
   end
 
