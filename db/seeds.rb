@@ -7,6 +7,7 @@
 
   (1..6).to_a.each do |question|
     question = Question.create(body: Faker::Hipster.sentence, survey: survey)
+    potential_reply = ""
     (2..4).to_a.each do |choice|
       choice = Choice.create(value: Faker::Hacker.verb)
       potential_reply = PotentialReply.create(question: question, choice: choice)
