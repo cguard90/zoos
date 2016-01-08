@@ -1,6 +1,6 @@
 class Response < ActiveRecord::Base
   belongs_to :potential_reply
-  belongs_to :user, through: :potential_reply, foreign_key: :responder_id
+  belongs_to :user, foreign_key: :responder_id
   belongs_to :survey
   belongs_to :question
 
