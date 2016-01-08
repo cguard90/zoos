@@ -17,6 +17,7 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'pry'
+gem 'pry-nav'
 gem 'bcrypt'
 
 group :test do
