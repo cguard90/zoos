@@ -1,7 +1,9 @@
 class Survey < ActiveRecord::Base
-  # Remember to create a migration!
-  belongs_to :user foreign_key: :creator_id
+  belongs_to :user, foreign_key: :creator_id
   has_many :questions
-  has_many :responses through: :questions
+  has_many :responses, through: :questions
 
+  validates :creator_id, presence: true, numericality: {only_integer: true}
+  validates :title, presence: true
+  validates :description, presence: true
 end
