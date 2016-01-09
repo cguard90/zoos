@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title></title>
+</head>
+<body>
+  <div id="nav">
+      <a href="/">Home</a>
+    <% if logged_in? %>
+      <a href="/user/:id">Profile</a>
+      <a href="/posts/new">Create Poll</a>
+      <a href="/logout">Log out</a>
+      <%else%>
+      <a href="/login">Log in</a>
+      <a href="/users/new">Register</a>
+    <%end%>
+  </div>
+  <div id="header">
+    <h1>Panda Polls</h1>
+  </div>
+  <%= yield %>
+</body>
+
+</html>
