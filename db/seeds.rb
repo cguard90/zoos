@@ -1,5 +1,5 @@
 (1..6).to_a.each_with_index do |number|
-  user = User.create(email: Faker::Internet.email, password_hash: "pwd")
+  user = User.create(email: Faker::Internet.email, password_hash: "password")
 
   survey = Survey.create(title: Faker::Hacker.say_something_smart,
                          description: Faker::Lorem.paragraph,
