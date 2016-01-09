@@ -1,8 +1,10 @@
 <div>
   <form method="POST" action="/choices">
     <label for="choice-value">Choice</label>
-    <input id="choice-value" type="text" placeholder="choice"/>
-
-    <input type="submit" value="Finish question"/>
+    <input id="choice-value" type="text" placeholder="choice" name="choice[value]"/>
+    <input type="submit" value="Add another choice"/>
+  </form>
+  <form method="GET" action="/questions/new">
+    <input type="submit" value="Finish Question"
   </form>
 </div>
