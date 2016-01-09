@@ -12,3 +12,11 @@
     <input type="submit" value="Finish Question"/>
   </form>
 </div>
+
+<% if @errors %>
+  <ul>
+    <% @errors.each do |errors| %>
+      <li><%= errors %></li>
+    <% end %>
+  </ul>
+<% end %>
