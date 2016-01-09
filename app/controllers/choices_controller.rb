@@ -7,6 +7,9 @@ end
 
 post '/choices' do
   @survey = Survey.find_by(id: params[:survey_id])
-  @choice = Choice.create(params[:choice])
+  @choice = Choice.new(params[:choice])
+  unless @choice.save
+    @errors = @choice.errors
+  end
   erb :'/choices/new'
 end
