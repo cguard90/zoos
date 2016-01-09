@@ -10,9 +10,9 @@ end
 post '/surveys' do
   @survey = Survey.new(params[:survey])
   if @survey.save
-    # redirect'/questions/new'
+    erb :'/questions/new'
   else
-    @error = @survey.errors.full_messages
+    @errors = @survey.errors.full_messages
     erb :'/survey/new'
   end
 end
