@@ -4,8 +4,9 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.new(session[:user])
+  @user = User.new(params[:user])
   if @user.save
+    binding.pry
     session[:user_id] = @user.id
     redirect '/users/:id'
   else
