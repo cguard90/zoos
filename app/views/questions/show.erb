@@ -1,9 +1,15 @@
-<form method="POST" action="/responses">
+<form method="POST" action="/answers">
   <h4><%= @question.body %></h4>
   <ul>
-    <% @question.choices.each do |choice| %>
+    <% @question.choices.each_with_index do |choice, index| %>
     <li>
-        <input type= "radio" name="response[choice_id]" value="<%= choice.id %>"/>
+        <input type="radio" name="answer[choice_id]" value="<%= choice.id %>"
+          <% if index == 0 %>
+            checked
+          <% end %>
+          />
+        <input type="hidden" name="answer[question_id]" value="<%= @question.id %>"\>
+        <%= choice.value %>
     </li>
     <% end %>
   </ul>

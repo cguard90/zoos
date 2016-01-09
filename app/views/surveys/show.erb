@@ -1,8 +1,7 @@
 <h1><%= @survey.title %></h1>
 <p><%= @survey.description %></p>
 <h2>Poll questions:</h2>
-<form method="GET" action="/questions/<%=@survey.questions.first.id%>">
-
+<form method="GET" action="/questions">
+  <input type="hidden" name="survey_id"value="<%= @survey.id %>"/>
   <input type="submit" value="Begin Survey"/>
-
 </form>
