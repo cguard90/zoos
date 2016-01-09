@@ -13,7 +13,7 @@ post '/surveys' do
     erb :'/questions/new'
   else
     @errors = @survey.errors.full_messages
-    erb :'/survey/new'
+    erb :'/surveys/new'
   end
 end
 
