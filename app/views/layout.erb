@@ -17,7 +17,7 @@
       <a href="/">Home</a>
     <% if logged_in? %>
       <a href="/users/<%=session[:user_id]%>">Profile</a>
-      <a href="/posts/new">Create Poll</a>
+      <a href="/surveys/new">Create Poll</a>
       <a href="/logout">Log out</a>
     <%else%>
       <a href="/login">Log in</a>
