@@ -1,7 +1,9 @@
 <div>
+  <h3>New Question</h3>
   <form action="/questions" method="POST">
-    Body: <input type="text" name="question[body]"><br>
-    Choices: <input type="text" name="question_choices"><br>
+    <label for="question-body">Body: </label>
+    <input id="question-body" type="text" name="question[body]">
+
     <input type="hidden" name="question[survey_id]" value="<%= @survey.id %>"><br>
     <input type="submit" value="add choices">
   </form>
