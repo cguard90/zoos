@@ -1,4 +1,5 @@
 get '/users/new' do
+  @user = User.new
   erb :"users/new"
 end
 
@@ -15,7 +16,6 @@ end
 
 get '/users/:id' do
   @user = User.find_by(id: session[:user_id])
-  binding.pry
   @surveys = @user.surveys
   erb :'/users/show'
 end
