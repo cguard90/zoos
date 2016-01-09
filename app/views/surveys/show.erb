@@ -2,8 +2,8 @@
 <p><%=@survey.description%></p>
 <%counter = 0%>
 <h2>Poll questions:</h2>
-<%@survey.questions.each do |question|%>
-  <p><%=counter +=1%>. <%=question.body%>:</p>
+<%@survey.questions.each_with_index do |question, index|%>
+  <p><%=index + 1%>. <%=question.body%>:</p>
   <p>choices:
     <%question.choices.each do |choice| %>
       <a href="Where do I go?"><%=choice.value%></a>
