@@ -3,6 +3,7 @@
     <label for="choice-value">Choice</label>
     <input id="choice-value" type="text" placeholder="choice" name="choice[value]"/>
     <input type="hidden" name="survey_id" value="<%= @survey.id %>"/>
+    <input type="hidden" name="question_id" value="<%= @question.id %>"/>
 
     <input type="submit" value="Add another choice"/>
   </form>
