@@ -1,0 +1,13 @@
+<div>
+  <form action="/questions" method="POST">
+
+    Body: <input type="text" name="question[body]"><br>
+    Choices: <input type="text" name="question_choices"><br>
+    <input type="hidden" name="question[survey_id]" value="<%= @survey.id %>"><br>
+    <input type="submit" value="add choices">
+  </form>
+  <form action="/surveys/<%= @survey.id %>" method="GET">
+    <input type="submit" value="Finish Survey">
+  </form>
+
+</div>
