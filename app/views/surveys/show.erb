@@ -6,13 +6,3 @@
   <input type="submit" value="Begin Survey"/>
 
 </form>
-
-
-  <% @survey.questions.each_with_index do |question, index| %>
-    <p><%= index + 1 %>. <%= question.body %>:</p>
-    <p>choices:
-      <% question.choices.each do |choice| %>
-        <a href="Where do I go?"><%= choice.value %></a>
-      <% end %>
-    </p>
-  <% end %>
