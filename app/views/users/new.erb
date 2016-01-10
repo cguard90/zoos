@@ -1,14 +1,6 @@
+<%=erb :"users/_login_or_register_partial"%>
+
 <div>
-  <form method="POST" action="/users">
-    <label for="user-email">Email:</label>
-    <input id="user-email" type="text" name="user[email]" value="<%= @user.email %>" placeholder="Email Address"/>
-
-    <label for="user-password">Password:</label>
-    <input id="user-password" type="password" name="user[password]" placeholder="password"/>
-
-    <input type="submit" value="Sign up"/>
-  </form>
-
   <% if @errors %>
     <ul>
       <% @errors.each do |error| %>

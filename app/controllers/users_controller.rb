@@ -1,6 +1,10 @@
 get '/users/new' do
   @user = User.new
-  erb :"users/new"
+  if request.xhr?
+    erb :"users/new", layout: false
+  else
+    erb :"users/new"
+  end
 end
 
 post '/users' do
