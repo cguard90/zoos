@@ -1,0 +1,21 @@
+<h1><%= @survey.title %></h1>
+<p><%= @survey.description %></p>
+<h2>Poll questions:</h2>
+
+<% unless @questions.empty? %>
+  <ul>
+  <% @questions.each do |question| %>
+    <li><%= question.body %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<% if current_user == @survey.user %>
+  <form method="GET" action="/questions/new">
+    <input type="hidden" name="survey_id" value="<%= @survey.id %>"/>
+
+    <input type="submit" value="Add a Question"/>
+  </form>
+<% end %>
+
+<a href="/surveys/<%= @survey.id %>/questions">Take Survey</a>
