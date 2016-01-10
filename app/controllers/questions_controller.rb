@@ -13,7 +13,7 @@ post '/questions' do
   @question = Question.new(params[:question])
   @survey = @question.survey
   if @question.save
-    erb :'/choices/new'
+    redirect '/choices/new'
   else
     @errors = @question.errors.full_messages
     erb :'/questions/new'
