@@ -8,11 +8,6 @@
     <li><%= question.body %></li>
   <% end %>
   </ul>
-
-  <form method="GET" action="/questions/<%=@questions.first.id%>">
-    <input type="hidden" name="survey_id"value="<%= @survey.id %>"/>
-    <input type="submit" value="Begin Survey"/>
-  </form>
 <% end %>
 
 <% if current_user == @survey.user %>
@@ -22,3 +17,5 @@
     <input type="submit" value="Add a Question"/>
   </form>
 <% end %>
+
+<a href="/surveys/<%= @survey.id %>/questions">Take Survey</a>
