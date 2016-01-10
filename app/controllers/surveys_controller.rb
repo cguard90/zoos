@@ -10,7 +10,7 @@ end
 post '/surveys' do
   @survey = Survey.new(params[:survey])
   if @survey.save
-    redirect '/questions/new'
+    redirect "/surveys/#{@survey.id}"
   else
     @errors = @survey.errors.full_messages
     erb :'/surveys/new'
@@ -18,6 +18,7 @@ post '/surveys' do
 end
 
 get '/surveys/:id' do
-  @survey = Survey.find(params[:id])
+  @survey = Survey.find_by(id: params[:id])
+  @questions = @survey.questions
   erb :"surveys/show"
 end
