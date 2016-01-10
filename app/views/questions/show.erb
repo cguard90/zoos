@@ -1,0 +1,11 @@
+<form method="POST" action="/responses">
+  <h4><%= @question.body %></h4>
+  <ul>
+    <% @question.choices.each do |choice| %>
+    <li>
+        <input type= "radio" name="response[choice_id]" value="<%= choice.id %>"/>
+    </li>
+    <% end %>
+  </ul>
+  <input type="submit" value="Submit Answer"/>
+</form>
