@@ -1,0 +1,19 @@
+<h3><%= @question.body %></h3>
+
+<form method="POST" action="/answers">
+  <ul>
+    <% @choices.each_with_index do |choice, index| %>
+    <li>
+      <input type="radio" name="answer[choice_id]" value="choice.id"
+        <% if index == 0 %>
+          checked
+        <% end %>
+      />
+      <%= choice.value %>
+      <input type="hidden" name="answer[question_id]" value="<%= @question.id %>"/>
+    </li>
+    <% end %>
+  </ul>
+
+  <input type="submit" value="Submit answer"/>
+</form>
