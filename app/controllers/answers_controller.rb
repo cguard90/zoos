@@ -1,3 +1,9 @@
+get '/answers/new' do
+  @question = Question.find_by(id: params[:question_id])
+  @choices = @question.choices
+  erb :'/answers/new'
+end
+
 post '/answers' do
   question = Question.find_by(id: params[:answer][:question_id])
   survey = question.survey
@@ -12,10 +18,5 @@ post '/answers' do
 
   @errors = @answer.errors.full_messages unless @answer.save
 
-  next_question =  Question.find_by(id: (@answer.question.id+1))
-  if next_question && next_question.survey == @answer.survey
-    redirect "/questions/#{next_question.id}"
-  else
-    redirect '/'
-  end
+  redirect "/surveys/#{survey.id}"
 end

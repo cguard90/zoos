@@ -1,9 +1,3 @@
-get '/questions' do
-  @survey = Survey.find_by(id: params[:survey_id])
-  @questions = @survey.questions
-  erb :'/questions/index'
-end
-
 get '/questions/new' do
   @survey = Survey.find_by(id: params[:survey_id])
   erb :'questions/new'

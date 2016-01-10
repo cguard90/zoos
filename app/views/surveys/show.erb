@@ -1,24 +1,17 @@
-<h1><%= @survey.title %></h1>
-<p><%= @survey.description %></p>
-<h2>Poll questions:</h2>
-
-<% unless @questions.empty? %>
+<div>
+  <h3><%= @survey.title %></h3>
   <ul>
-  <% @questions.each do |question| %>
-    <li><%= question.body %></li>
-  <% end %>
+    <% @questions.each do |question| %>
+      <li>
+        <p><%= question.body %></p>
+        <form method="GET" action="/answers/new">
+          <input type="hidden" name="question_id"value="<%= question.id %>"/>
+
+          <input type="submit" value="Answer Question"/>
+        </form>
+      </li>
+    <% end %>
   </ul>
+</div>
 
-  <form method="GET" action="/questions/<%=@questions.first.id%>">
-    <input type="hidden" name="survey_id"value="<%= @survey.id %>"/>
-    <input type="submit" value="Begin Survey"/>
-  </form>
-<% end %>
-
-<% if current_user == @survey.user %>
-  <form method="GET" action="/questions/new">
-    <input type="hidden" name="survey_id" value="<%= @survey.id %>"/>
-
-    <input type="submit" value="Add a Question"/>
-  </form>
-<% end %>
+<a href="/surveys">Complete Survey</a>
