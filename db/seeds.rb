@@ -12,7 +12,7 @@
       choice = Choice.create(value: Faker::Hacker.verb)
       potential_reply = PotentialReply.create(question: question, choice: choice)
     end
-    response = Response.create(survey: survey,
+    answer = Answer.create(survey: survey,
                                question: question,
                                user: User.all.sample,
                                potential_reply: potential_reply)
