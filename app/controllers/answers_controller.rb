@@ -1,3 +1,8 @@
+get '/answers/new' do
+  @potential_reply = PotentialReply.find_by(id: params[:potential_reply_id])
+  erb :'/answers/new'
+end
+
 post '/answers' do
   question = Question.find_by(id: params[:answer][:question_id])
   survey = question.survey
