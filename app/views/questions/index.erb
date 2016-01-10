@@ -1,16 +1,18 @@
 <div>
   <h3><%= @survey.title %></h3>
   <ul>
-    <% @questions.each_with_index do |question, index| %>
+    <% @questions.each do |question| %>
       <li>
-        <a href="questions/<%= question.id %>"><%= question.body %></a>
+        <p><%= question.body %></p>
+        <form method="GET" action="/answers/new">
+          <input type="hidden" name="question_id"value="<%= question.id %>"/>
+
+          <input type="submit" value="Answer Question"/>
+        </form>
       </li>
     <% end %>
   </ul>
 </div>
-
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <p><%= error %></p>
-  <% end %>
+<% if all_questions_answered? %>
+  <a href="/surveys/<%= @survey.id %>">Complete Survey</a>
 <% end %>
