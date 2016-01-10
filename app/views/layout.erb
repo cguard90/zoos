@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   <script src="/js/application.js"></script>
 
   <meta title="Polling Panda" charset="UTF-8"/>
@@ -20,10 +21,15 @@
       <a href="/surveys/new">Create Poll</a>
       <a href="/logout">Log out</a>
     <%else%>
-      <a href="/login">Log in</a>
-      <a href="/users/new">Register</a>
+      <a href="/login" class="user_form">Log in</a>
+      <a href="/users/new" class="user_form">Register</a>
     <%end%>
   </nav>
+
+  <div id="hidden">
+
+  </div>
+
   <header id="header">
     <h1>Polling Panda</h1>
   </header>
