@@ -1,17 +1,31 @@
-<form method="POST" action="/answers">
-  <h4><%= @question.body %></h4>
+<h4><%= @question.body %></h4>
+<% if current_user == @user %>
+  <form method="GET" action="/choices/new">
+    <input type="hidden" name="survey_id" value="<%= @survey.id %>"/>
+    <input type="hidden" name="question_id" value="<%= @question.id %>"/>
+
+    <input type="submit" value="Add a Choice"/>
+  </form>
   <ul>
-    <% @question.choices.each_with_index do |choice, index| %>
-    <li>
-        <input type="radio" name="answer[choice_id]" value="<%= choice.id %>"
-          <% if index == 0 %>
-            checked
-          <% end %>
-          />
-        <input type="hidden" name="answer[question_id]" value="<%= @question.id %>"\>
-        <%= choice.value %>
-    </li>
+    <% @question.choices.each do |choice| %>
+      <li><%= choice.value %></li>
     <% end %>
   </ul>
-  <input type="submit" value="Submit Answer"/>
-</form>
+<% else %>
+  <form method="POST" action="/answers">
+    <ul>
+      <% @question.choices.each_with_index do |choice, index| %>
+      <li>
+          <input type="radio" name="answer[choice_id]" value="<%= choice.id %>"
+            <% if index == 0 %>
+              checked
+            <% end %>
+            />
+          <input type="hidden" name="answer[question_id]" value="<%= @question.id %>"\>
+          <%= choice.value %>
+      </li>
+      <% end %>
+    </ul>
+    <input type="submit" value="Submit Answer"/>
+  </form>
+<% end %>
