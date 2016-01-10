@@ -18,5 +18,5 @@ post '/answers' do
 
   @errors = @answer.errors.full_messages unless @answer.save
 
-  redirect "/surveys/#{survey.id}/questions"
+  redirect "/surveys/#{survey.id}"
 end
