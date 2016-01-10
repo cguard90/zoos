@@ -22,3 +22,9 @@ get '/surveys/:id' do
   @questions = @survey.questions
   erb :"surveys/show"
 end
+
+get '/surveys/:survey_id/questions' do
+  @survey = Survey.find_by(id: params[:survey_id])
+  @questions = @survey.questions
+  erb :'/questions/index'
+end
