@@ -1,0 +1,11 @@
+<div id="login_or_register">
+  <form method="POST" action="/login">
+    <label for="user-email">Email:</label>
+    <input id="user-email" type="text" name="user[email]" value="<%=@user.email %>" placeholder="Email Address"/>
+
+    <label for="user-password">Password:</label>
+    <input id="user-password" type="password" name="user[password]" placeholder="password"/>
+
+    <input type="submit" value="Login"/>
+  </form>
+</div>

@@ -1,6 +1,10 @@
 get '/login' do
   @user = User.new
-  erb :'/login'
+  if request.xhr?
+    erb :'/login', layout: false
+  else
+    erb :'/login'
+  end
 end
 
 post '/login' do
