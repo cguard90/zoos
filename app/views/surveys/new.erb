@@ -1,7 +1,7 @@
 <div>
   <h3>New Survey</h3>
   <form action="/surveys" method="POST">
-    Title: <input type="text" name="survey[title]"><br>
+    Title: <input type="text" name="survey[title]" autofocus="autofocus"><br>
     Description: <input type="text" name="survey[description]"><br>
     <input type="hidden" name="survey[creator_id]" value="<%= session[:user_id] %>"/>
 

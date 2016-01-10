@@ -1,6 +1,5 @@
 get '/choices/new' do
-  @choice_numbers = (1..params[:question_choices].to_i).to_a
-  @question = Question.create(params[:question])
+  @question = Question.find_by(id: params[:question_id])
   @survey = @question.survey
   erb :'/choices/new'
 end
@@ -11,8 +10,9 @@ post '/choices' do
   @choice = Choice.new(params[:choice])
   if @choice.save
     PotentialReply.create(choice: @choice, question: @question)
+    redirect "/questions/#{@question.id}"
   else
     @errors = @choice.errors
+    erb :'/choices/new'
   end
-  erb :'/choices/new'
 end

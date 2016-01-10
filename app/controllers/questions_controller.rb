@@ -13,7 +13,7 @@ post '/questions' do
   @question = Question.new(params[:question])
   @survey = @question.survey
   if @question.save
-    erb :'/choices/new'
+    redirect "/questions/#{@question.id}"
   else
     @errors = @question.errors.full_messages
     erb :'/questions/new'
@@ -22,5 +22,7 @@ end
 
 get '/questions/:id' do
   @question = Question.find_by(id: params[:id])
+  @survey = @question.survey
+  @user = @survey.user
   erb :'/questions/show'
 end
