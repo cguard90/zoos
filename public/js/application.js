@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $(".user_form").click(function(event) {
+  $(".user_form").on("click", function(event) {
     event.preventDefault();
     $.ajax({
       type: "GET",
